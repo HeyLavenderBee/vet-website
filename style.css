@@ -1,0 +1,190 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.rubik-font {
+    font-family: "Rubik", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.header{
+    height: 60px;
+    padding: 7px;
+    background-color: #496aa7;
+    margin-bottom: 20px;
+    box-shadow: 2px 8px 6px #332d5241;
+}
+
+.header .left-side{
+    width: 100px;
+    height: 90%;
+    margin: auto;
+    font-size: 20px;
+    color: aliceblue;
+    float: left;
+}
+
+.header .left-side .logo{
+    background-image: url("logo.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+}
+
+.header .right-side{
+    width: 65%;
+    height: 90%;
+    margin: auto;
+    padding: 12px;
+    float: right;
+}
+
+.header .right-side a{
+    margin-right: 50px;
+    font-size: 18px;
+    text-decoration: none;
+    color: beige;
+}
+
+.h-links{
+    width: 700px;
+    height: 40px;
+    margin: auto;
+    float: right;
+}
+
+.main{
+    padding: 30px;
+    color:#51286d;
+}
+
+.home-image{
+    width: 92%;
+    height: 240px;
+    padding: 20px;
+    margin: auto;
+    border-radius: 10px;
+    font-size: 20px;
+    background-color: #926CA1;
+}
+
+.home-image .image{
+    background-image: url("juan.jfif");
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 30%;
+    height: 80%;
+    padding: 20px;
+    border-radius: 8px;
+    float: left;
+    background-color: aliceblue;
+}
+
+.home-image .right-side{
+    width: 60%;
+    margin: auto;
+    padding: 10px;
+    text-align: justify;
+    font-size: 20px;
+    float: right;
+}
+
+.form-group{
+    display: flex;
+    flex-direction: row;
+    gap: 35px;
+    width: 55%;
+    height: 380px;
+    padding: 25px;
+    margin: auto;
+    /*background-color: #bbccee;*/
+}
+
+.title{
+    width: max-content;
+    color: #51286d;
+    font-size: 22px;
+    margin: auto;
+}
+
+.form-group .pet-image{
+    background-image: url("forms-dog.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 40%;
+    height: 80%;
+    padding: 20px;
+    border-radius: 8px;
+    float: left;
+}
+
+.form-group .human-image{
+    background-image: url("forms-human.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 40%;
+    height: 80%;
+    padding: 20px;
+    border-radius: 8px;
+    float: left;
+}
+
+.form-content{
+    width: 300px;
+    height: 80%;
+    border-radius: 10px;
+    padding: 15px;
+    float: right;
+    color: #bcbcdd;
+    font-size: 17px;
+    background-color: #926CA1;
+    border: 2px solid #51286d;
+}
+
+input[type=text]{
+    width: 90%;
+    height: 20px;
+    border-radius: 3px;
+    border: none;
+}
+
+input[type=submit]{
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+    background-color: #496aa7;
+}
+
+@media screen and (max-width: 940px){
+}
+
+@media screen and (max-width: 860px){
+    .form-group{
+        height: 900px;
+        flex-direction: column;
+    }
+
+    .form-group .human-image{
+        margin-bottom: 25px;
+        width: 100%;
+
+    }
+
+    .form-group .pet-image{
+        margin-bottom: 25px;
+        width: 100%;
+    }
+
+    .form-content{
+        width: 100%;
+    }
+
+    .main{
+        padding: 0px;
+    }
+}
+

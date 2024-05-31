@@ -1,5 +1,42 @@
+<?php
+    session_start();
+
+    $name_error = $email_error = $address_error = $phone_error = "";
+
+    if($_SERVER["REQUEST_METHOD"] == "POST"){
+        $client_name = $_POST["name"];
+        $email = $_POST["email"];
+        $address = $_POST["address"];
+        $phone_number = $_POST["phone"];
+
+        if(empty($client_name)){
+            $name_error = "Campo obrigatório";
+        }
+        else if(empty($email)){
+            $email_error = "Campo obrigatório";
+        }
+        else if(empty($address)){
+            $address_error = "Campo obrigatório";
+        }
+        else if(empty($phone_number)){
+            $phone_error = "Campo obrigatório";
+        }
+        else if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
+            $email_error = "Formato de email inválido";
+        }
+        else{
+            $_SESSION["client_name"] = $client_name;
+            $_SESSION["email"] = $email;
+            $_SESSION["address"] = $address;
+            $_SESSION["phone_number"] = $phone_number;
+            header("Location: cadastro-pet.php"); //manda o valor da variavel para a outra pagina
+        }
+        
+    }
+?>
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -25,36 +62,35 @@
             </div>
             <div class="form-content">
                 <form method="post">
-                    Nome<br>
+                    *Campo obrigatório<br><br>
+                    Nome*
+                    <?php
+                        echo " ", $name_error;
+                    ?><br>
                     <input type="text" name="name">
                     <br><br>
-                    Email<br>
+                    Email*
+                    <?php 
+                        echo " ", $email_error;
+                    ?><br>
                     <input type="text" name="email">
                     <br><br>
-                    Endereço<br>
+                    Endereço*
+                    <?php 
+                        echo " ", $address_error;
+                    ?><br>
                     <input type="text" name="address">
                     <br><br>
-                    Telefone<br>
+                    Telefone*
+                    <?php 
+                        echo " ", $phone_error;
+                    ?><br>
                     <input type="text" name="phone">
                     <br><br>
                     <input type="submit" name="submit" value="Próximo">
                 </form>
             </div>
         </div>
-
-        <?php
-            session_start();
-            $client_name = "";
-            echo $client_name;
-            if(isset($_POST["submit"])){
-                $_SESSION["client_name"] = $client_name = $_POST["name"];
-                $_SESSION["email"] = $email = $_POST["email"];
-                $_SESSION["address"] = $address = $_POST["address"];
-                $_SESSION["phone_number"] = $phone_number = $_POST["phone"];
-                header("Location: cadastro-pet.php"); //manda o valor da variavel para a outra pagina
-            }
-        ?>
-
     </div>
 </body>
 </html>

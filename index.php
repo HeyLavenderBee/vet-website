@@ -15,12 +15,13 @@
             <a href="index.php"><div class="logo"></div></a>
         </div>
         <div class="right-side">
-            <div class="account-dropdown">
+            <!--<div class="account-dropdown">
                 <button class="account-button">Entrar</button>
                 <div class="account-options">
                     <a href="cadastro-cliente.php">Cadastrar</a>
                 </div>
-            </div>
+            </div>-->
+            <a href="cadastro-cliente.php"><button class="account-button">Entrar</button></a>
         </div>
     </div>
     <div class="home-image">
@@ -32,12 +33,12 @@
             Cadastre-se agora, e agende uma consulta gratuitamente
         </div>
     </div>
-    <div class="main">
+    <!--<div class="main">
         
     </div>
     <div class="footer">
         Entre em contato!<br>
         12990723569<br><br>
-    </div>
+    </div>-->
 </body>
 </html>

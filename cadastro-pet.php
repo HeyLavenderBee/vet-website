@@ -1,5 +1,38 @@
+<?php
+    session_start();
+
+    $pet_name_error = $owner_name_error = $animal_type_error = $problem_error = "";
+
+    if($_SERVER["REQUEST_METHOD"] == "POST"){
+        $pet_name = $_POST["pet-name"];
+        $owner_name = $_POST["owner-name"];
+        $animal_type = $_POST["animal-type"];
+        $pet_problem = $_POST["desc"];
+
+        if(empty($pet_name)){
+            $pet_name_error = "Campo obrigatório";
+        }
+        else if(empty($owner_name)){
+            $owner_name_error = "Campo obrigatório";
+        }
+        else if(empty($animal_type)){
+            $animal_type_error = "Campo obrigatório";
+        }
+        else if(empty($pet_problem)){
+            $problem_error = "Campo obrigatório";
+        }
+        else{
+            $_SESSION["pet_name"] = $pet_name;
+            $_SESSION["owner_name"] = $owner_name;
+            $_SESSION["animal_type"] = $animal_type;
+            $_SESSION["pet_problem"] = $pet_problem;
+            header("Location: data-output.php"); //manda o valor da variavel para a outra pagina
+        }
+    }
+?>
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,6 +50,7 @@
     </div>
 
     <div class="main">
+        <a href="cadastro-cliente.php"><button>Voltar</button></a>
         <div class="title">
             Cadastro de Pet
         </div>
@@ -25,38 +59,38 @@
             </div>
             <div class="form-content">
                 <form method="post">
-                    Nome do Pet<br>
+                    *Campo obrigatório<br><br>
+                    Nome do Pet*
+                    <?php
+                        echo " ", $pet_name_error;
+                    ?><br>
                     <input type="text" name="pet-name">
                     <br><br>
-                    Nome do Dono<br>
+                    Nome do Dono*
+                    <?php
+                        echo " ", $owner_name_error;
+                    ?><br>
                     <input type="text" name="owner-name">
                     <br><br>
-                    Tipo de animal<br>
-                    <input type="radio" name="animal-type" value="dog"> Cachorro <br>
-                    <input type="radio" name="animal-type" value="cat"> Gato <br>
-                    <input type="radio" name="animal-type" value="bird"> Pássaro <br>
-                    <input type="radio" name="animal-type" value="other"> Outro <br>
+                    Tipo de animal*
+                    <?php
+                        echo " ", $animal_type_error;
+                    ?><br>
+                    <input type="radio" name="animal-type" value="Cachorro"> Cachorro <br>
+                    <input type="radio" name="animal-type" value="Gato"> Gato <br>
+                    <input type="radio" name="animal-type" value="Passáro"> Pássaro <br>
+                    <input type="radio" name="animal-type" value="Outro"> Outro <br>
                     <br>
-                    Descrição do problema<br>
+                    Descrição do problema*
+                    <?php
+                        echo " ", $problem_error;
+                    ?><br>
                     <input type="text" name="desc" cols="40" rows="2">
                     <br><br>
-                    <input type="submit" name="submit" value="Submit">
+                    <input type="submit" name="submit" value="Terminar cadastro">
                 </form>
             </div>
         </div>
-
-        <?php 
-            session_start();
-            $pet_name = "";
-            if(isset($_POST["submit"])){
-                $_SESSION["pet_name"] = $_POST["pet-name"];
-                $_SESSION["owner_name"] = $_POST["owner-name"];
-                $_SESSION["animal_type"] = $_POST["animal-type"];
-                $_SESSION["pet_problem"] = $_POST["desc"];
-                header("Location: data-output.php"); //manda o valor da variavel para a outra pagina
-            }
-        ?>
-
     </div>
 </body>
 </html>

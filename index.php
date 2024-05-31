@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <title>Página Inicial</title>
+    <title>Veterinário da Lia</title>
 </head>
 <body>
     <div class="header">
@@ -15,25 +15,29 @@
             <a href="index.php"><div class="logo"></div></a>
         </div>
         <div class="right-side">
-            <a href="cadastro-cliente.php">Cadastro</a>
-            <a href="#">Login</a>
+            <div class="account-dropdown">
+                <button class="account-button">Entrar</button>
+                <div class="account-options">
+                    <a href="cadastro-cliente.php">Cadastrar</a>
+                </div>
+            </div>
         </div>
     </div>
     <div class="home-image">
         <div class="image"></div>
         <div class="right-side">
-            texto texto
+            <h2>O melhor veterinário para o seu pet!</h2><br>
+            Todos os cuidados para o seu pet, 24 horas por dia<br>
+            
+            Cadastre-se agora, e agende uma consulta gratuitamente
         </div>
     </div>
     <div class="main">
-        <?php
-        session_start();
-        echo $_SESSION["client_name"];
-        echo $_SESSION["email"];
-        echo $_SESSION["address"];
-        echo $_SESSION["phone_number"];
-        ?>
+        
     </div>
-    
+    <div class="footer">
+        Entre em contato!<br>
+        12990723569<br><br>
+    </div>
 </body>
 </html>

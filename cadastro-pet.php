@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
     <link href="style.css" rel="stylesheet">
-    <title>Cadastro de Cliente</title>
+    <title>Cadastro de Pet</title>
 </head>
 <body>
     <div class="header">
@@ -46,13 +46,14 @@
         </div>
 
         <?php 
+            session_start();
             $pet_name = "";
             if(isset($_POST["submit"])){
-                $_SERVER["pet_name"] = $_POST["pet-name"];
-                $_SERVER["owner_name"] = $_POST["owner-name"];
-                $_SERVER["animal_type"] = $_POST["animal-type"];
-                $_SERVER["pet_problem"] = $_POST["desc"];
-                header("Location: index.php"); //manda o valor da variavel para a outra pagina
+                $_SESSION["pet_name"] = $_POST["pet-name"];
+                $_SESSION["owner_name"] = $_POST["owner-name"];
+                $_SESSION["animal_type"] = $_POST["animal-type"];
+                $_SESSION["pet_problem"] = $_POST["desc"];
+                header("Location: data-output.php"); //manda o valor da variavel para a outra pagina
             }
         ?>
 
